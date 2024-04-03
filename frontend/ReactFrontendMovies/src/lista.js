@@ -26,25 +26,29 @@ function Lista() {
   };
 
   const filtrar = (e) => {
-    const filtro = {...filtros};
-    filtro[e.field].value = e.constraints.value;
+    const filtro = {
+      ...filtros,
+      page: 0,
+      first: 0,
+      [e.field]: { value: e.constraints.value, matchMode: FilterMatchMode.CONTAINS }
+    };
     setFiltros(filtro);
   }
 
   const filterWinner = (options) => {
     const opcoes = [
-      { name: 'Sim', value: 'true' },
-      { name: 'Não', value: 'false' },
+      { name: 'Yes', value: 'true' },
+      { name: 'No', value: 'false' },
     ]
     return <Dropdown aria-label="select-vencedor" value={options.value} onChange={(e) => options.filterCallback(e.value)} options={opcoes} optionLabel="name" />;
   };
 
   const filterClearTemplate = (options) => {
-      return <Button className='cancel-filter' size="small" type="button" label="Cancelar" onClick={options.filterClearCallback} outlined></Button>;
+      return <Button className='cancel-filter' size="small" type="button" label="Cancel" onClick={options.filterClearCallback} outlined></Button>;
   };
 
   const filterApplyTemplate = (options) => {
-      return <Button type="button" label="Aplicar" size="small" onClick={options.filterApplyCallback}></Button>;
+      return <Button type="button" label="Apply" size="small" onClick={options.filterApplyCallback}></Button>;
   };
 
   const onPageChange = (e) => {
@@ -83,14 +87,14 @@ function Lista() {
 
   return (
     <div className="content-wrapper">
-      <h1 className="page-title">Lista de filmes</h1>
+      <h1 className="page-title">List movies</h1>
       <DataTable
         stripedRows
         value={movies}
         tableStyle={{ minWidth: '734px' }}
         filters={filtros}
         globalFilterFields={['year', 'winner']}
-        emptyMessage="Nenhum filme encontrado."
+        emptyMessage="Movies not found."
       >
         <Column
           field="id"
@@ -99,7 +103,7 @@ function Lista() {
         ></Column>
         <Column
           field="year"
-          header="Ano"
+          header="Year"
           filter
           onFilterApplyClick={filtrar}
           onFilterClear={limpar}
@@ -109,11 +113,11 @@ function Lista() {
         ></Column>
         <Column
           field="title"
-          header="Título"
+          header="Title"
         ></Column>
         <Column
           field="winner"
-          header="Vencedor?"
+          header="Winner?"
           dataType="boolean"
           filter
           onFilterApplyClick={filtrar}
@@ -129,7 +133,7 @@ function Lista() {
         page={filtros.page}
         rows={filtros.size}
         totalRecords={paginationData.totalElements}
-        rowsPerPageOptions={[10, 20, 30]}
+        rowsPerPageOptions={[3, 5, 10, 20, 30]}
         onPageChange={onPageChange}
       />
     </div>

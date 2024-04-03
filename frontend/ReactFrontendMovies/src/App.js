@@ -47,7 +47,7 @@ function App() {
               to="/"
               className={location.pathname === '/' ? 'link-layout link-active' : 'link-layout link'}
             >
-              Lista
+              List
             </Link>
           </nav>
           <div className="content">

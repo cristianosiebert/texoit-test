@@ -38,7 +38,7 @@ test('Exibe lista de filmes vencedores por ano após busca', async () => {
     render(<Dashboard />);
   
     fireEvent.change(screen.getByDisplayValue(''), { target: { value: anoBusca } });
-    fireEvent.click(screen.getByText('Aplicar'));
+    fireEvent.click(screen.getByText('Apply'));
 
     await waitFor(() => {
       expect(screen.getByText('Swept Away')).toBeInTheDocument();

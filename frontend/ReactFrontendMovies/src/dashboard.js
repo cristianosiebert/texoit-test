@@ -62,77 +62,76 @@ function Dashboard() {
   return (
     <div className="content-wrapper container">
       <div className="top-div">
-        <h3 className="page-title">Lista de anos com múltiplos vencedores</h3>
+        <h3 className="page-title">List years with multiple winners</h3>
         <DataTable
           stripedRows
           value={multiplosVencedores.years}
           tableStyle={{ minWidth: '372px' }}
-          emptyMessage="Nenhum ano encontrado."
+          emptyMessage="Year not found."
         >
-          <Column field="year" header="Ano" style={{ width: '50%' }}></Column>
-          <Column field="winnerCount" header="Vitórias"></Column>
+          <Column field="year" header="Year" style={{ width: '50%' }}></Column>
+          <Column field="winnerCount" header="Win Count"></Column>
         </DataTable>
       </div>
 
       <div className="top-div">
-        <h3 className="page-title">Top 3 estúdios vencedores</h3>
+        <h3 className="page-title">Top 3 studios wiht winners</h3>
         <DataTable
           stripedRows
           value={top3Vencedores}
           tableStyle={{ minWidth: '372px' }}
-          emptyMessage="Nenhum estúdio encontrado."
+          emptyMessage="Studio not found."
         >
-          <Column field="name" header="Nome" style={{ width: '50%' }}></Column>
-          <Column field="winCount" header="Vitórias"></Column>
+          <Column field="name" header="Name" style={{ width: '50%' }}></Column>
+          <Column field="winCount" header="Win Count"></Column>
         </DataTable>
       </div>
 
       <div className="bottom-div">
-        <h3 className="page-title">Produtores com maior e menor intervalo entre vitórias</h3>
-        <h4 className="page-title">Máximo</h4>
+        <h3 className="page-title">Producers with longest and shortest interval between wins</h3>
+        <h4 className="page-title">Maximum</h4>
         <DataTable
           stripedRows
           value={intervalosMax}
           tableStyle={{ minWidth: '372px' }}
-          emptyMessage="Nenhum produtor encontrado."
+          emptyMessage="Producers not found."
         >
-          <Column field="followingWin" header="Mais recente" style={{ width: '15%' }}></Column>
-          <Column field="interval" header="Intervalo" style={{ width: '15%' }}></Column>
-          <Column field="previousWin" header="Mais antigo" style={{ width: '15%' }}></Column>
-          <Column field="producer" header="Produtor"></Column>
+          <Column field="producer" header="Producer"></Column>
+          <Column field="interval" header="Interval" style={{ width: '15%' }}></Column>
+          <Column field="previousWin" header="Previous Year" style={{ width: '15%' }}></Column>
+          <Column field="followingWin" header="Following Year" style={{ width: '15%' }}></Column>
         </DataTable>
 
-        <h4>Mínimo</h4>
+        <h4>Minimum</h4>
         <DataTable
           stripedRows
           value={intervalosMin}
           tableStyle={{ minWidth: '372px' }}
-          emptyMessage="Nenhum produtor encontrado."
+          emptyMessage="Producers not found."
         >
-          <Column field="followingWin" header="Mais recente" style={{ width: '15%' }}></Column>
-          <Column field="interval" header="Intervalo" style={{ width: '15%' }}></Column>
-          <Column field="previousWin" header="Mais antigo" style={{ width: '15%' }}></Column>
-          <Column field="producer" header="Produtor"></Column>
+          <Column field="producer" header="Producer"></Column>
+          <Column field="interval" header="Interval" style={{ width: '15%' }}></Column>
+          <Column field="previousWin" header="Previous Year" style={{ width: '15%' }}></Column>
+          <Column field="followingWin" header="Following Year" style={{ width: '15%' }}></Column>
         </DataTable>
       </div>
 
       <div className="bottom-div">
-        <h3 className="page-title">Lista de filmes vencedores por ano</h3>
+        <h3 className="page-title">List movie winners by year</h3>
         <div className="busca-ano">
           <InputText className="input-busca-ano" value={anoBusca} onChange={(e) => setAnoBusca(e.target.value)} />
-          <Button className="btn-busca-ano" type="button" label="Aplicar" size="small" onClick={getFilmesAno}></Button>
-          <Button className="btn-busca-ano" size="small" type="button" label="Cancelar" onClick={resetFilmesAno} outlined></Button>
+          <Button className="btn-busca-ano" type="button" label="Apply" size="small" onClick={getFilmesAno}></Button>
+          <Button className="btn-busca-ano" size="small" type="button" label="Cancel" onClick={resetFilmesAno} outlined></Button>
         </div>
 
         <DataTable
           stripedRows
           value={filmesAno}
           tableStyle={{ minWidth: '372px' }}
-          emptyMessage="Nenhum filme encontrado."
         >
           <Column field="id" header="ID" style={{ width: '10%' }}></Column>
-          <Column field="year" header="Ano" style={{ width: '15%' }}></Column>
-          <Column field="title" header="Título"></Column>
+          <Column field="year" header="Year" style={{ width: '15%' }}></Column>
+          <Column field="title" header="Title"></Column>
         </DataTable>
       </div>
     </div>

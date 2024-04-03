@@ -58,7 +58,7 @@ test('Filtros da lista de filmes', async () => {
     fireEvent.click(btnFilter[0]);
     fireEvent.change(screen.getByDisplayValue(''), { target: { value: '1985' } });
     setTimeout(async () => {
-        fireEvent.click(screen.getByLabelText('Aplicar'));
+        fireEvent.click(screen.getByLabelText('Apply'));
 
         await waitFor(() => {
         expect(screen.queryByText('The Jazz Singer')).not.toBeInTheDocument();
@@ -73,7 +73,7 @@ test('Filtros da lista de filmes', async () => {
     fireEvent.click(btnFilter[1]);
     fireEvent.change(screen.getByLabelText('select-vencedor'), { target: { value: 'true' } });
     setTimeout(async () => {
-        fireEvent.click(screen.getByLabelText('Aplicar'));
+        fireEvent.click(screen.getByLabelText('Apply'));
         await waitFor(() => {
         expect(screen.queryByText('Rambo: First Blood Part II')).toBeInTheDocument();
         });
@@ -81,7 +81,7 @@ test('Filtros da lista de filmes', async () => {
 
     fireEvent.click(btnFilter[1]);
     setTimeout(async () => {
-        fireEvent.click(screen.getByLabelText('Cancelar'));
+        fireEvent.click(screen.getByLabelText('Cancel'));
         await waitFor(() => {
             expect(screen.queryByText('The Jazz Singer')).not.toBeInTheDocument();
             expect(screen.queryByText('Rambo: First Blood Part II')).toBeInTheDocument();
@@ -94,7 +94,7 @@ test('Filtros da lista de filmes', async () => {
 
     fireEvent.click(btnFilter[0]);
     setTimeout(async () => {
-        fireEvent.click(screen.getByLabelText('Cancelar'));
+        fireEvent.click(screen.getByLabelText('Cancel'));
         await waitFor(() => {
             expect(screen.getByText('Cruising')).toBeInTheDocument();
             expect(screen.getByText('The Formula')).toBeInTheDocument();
