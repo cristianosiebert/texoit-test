@@ -67,7 +67,7 @@ function Dashboard() {
           stripedRows
           value={multiplosVencedores.years}
           tableStyle={{ minWidth: '372px' }}
-          emptyMessage="Year not found."
+          emptyMessage="Year not found mate."
         >
           <Column field="year" header="Year" style={{ width: '50%' }}></Column>
           <Column field="winnerCount" header="Win Count"></Column>
@@ -80,7 +80,7 @@ function Dashboard() {
           stripedRows
           value={top3Vencedores}
           tableStyle={{ minWidth: '372px' }}
-          emptyMessage="Studio not found."
+          emptyMessage="Studio not found mate."
         >
           <Column field="name" header="Name" style={{ width: '50%' }}></Column>
           <Column field="winCount" header="Win Count"></Column>
